@@ -41,6 +41,21 @@
         $("#message").html("text: " + data+" updDate: " + updata);
       })
     }
+    function fetchAll() {
+      // 登録するレコードを用意
+      var testClass = ncmb.DataStore("FetchTest");
+      // レコードをデータベースに登録
+      TestClass.fetchAll()
+      .then(function(results) {
+        var msg="";
+      for(var i=0;i<results.length;i++){
+        var data=results[i].get("text");
+        var updata=results[i].get("updateDate");
+        msg += data +":"+ updata;
+        $("#message").html(msg);
+      }
+      })
+    }
     </script>
 </head>
 <body>
