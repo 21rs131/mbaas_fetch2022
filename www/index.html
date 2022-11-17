@@ -30,6 +30,17 @@
         $("#message").html("Failed to create new object, with error code: " + JSON.stringify(err));
       })
     }
+    function fetch() {
+      // 登録するレコードを用意
+      var testClass = ncmb.DataStore("FetchTest");
+      // レコードをデータベースに登録
+      TestClass.fetch()
+      .then(function(results) {
+        var data=results.get("text");
+        var updata=results.get("updateDate");
+        $("#message").html("text: " + data+" updDate: " + updata);
+      })
+    }
     </script>
 </head>
 <body>
